@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Mulish', sans-serif;
+}
+
+html {
+    background-color: #fbfbfb;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgb(231, 229, 229);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 1000;
+}
+
+.left, .right {
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.option, .searchicon, .newoffer, .help, .signin, .cart {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+a, .material-icons {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.option:hover a,
+.option:hover .material-icons,
+.searchicon:hover .material-icons,
+.newoffer:hover .icon1,
+.help:hover .material-icons,
+.signin:hover .material-icons,
+.cart:hover .material-icons {
+    color: #fc8019; /* Swiggy orange */
+}
+
+.newoffer:hover .icon1 {
+    filter: hue-rotate(-30deg);
+}
+
+.icon1 {
+    transition: filter 0.3s;
+}
+
+.menu {
+    display: none;
+}
+
+.logo img {
+    width: 40px;
+}
+
+.searchicon {
+    display: flex;
+}
+
+.search {
+    padding: 10px;
+    border: none;
+    font-size: 17px;
+    width: 100px;
+}
+
+.right {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.right > span {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.right a {
+    color: #3d4152;
+    text-decoration: none;
+}
+
+.right img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Container 2 */
+.nav-container1 {
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid lightgrey;
+    padding-bottom: 10px;
+}
+
+.nav-container1 > .right1 {
+    display: flex;
+    gap: 20px; 
+}
+
+.nav-container1 > .right1 > a {
+    text-decoration: none;
+    color: gray;
+}
+
+.option > span {
+    color: #686b78;
+}
+
+.option > .material-icons {
+    color: #fc8019;
+}
+
+.container {
+    width: 75vw;
+    margin: 120px auto;
+    margin-bottom: 70px;
+}
+
+.secnav-ringt:hover {
+    border-bottom: 1px solid rgb(62, 60, 60);
+}
+
+/* Cards Grid */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto); 
+    gap: 15px; 
+    margin-top: 30px;
+}
+
+.card {
+    position: relative;
+    padding: 20px;
+    padding-bottom: 0;
+    width: 250px;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.card img {
+    width: 250px;
+}
+
+.promoted {
+    background-color: rgb(58, 60, 65);
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 6px;
+    z-index: 10;
+    width: 100px;
+}
+
+.promoted::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background: rgb(44, 44, 47);
+    position: absolute;
+    top: 10px;
+    z-index: -1;
+    transform: skewY(30deg);
+}
+
+.lessrate {
+    display: inline-block; /* Ensure the span behaves like a block element */
+    padding: 5px; /* Add some padding for spacing */
+    background-color: #FFD700; /* Optional: Set background color, e.g., gold for a star */
+    color: white;
+    border-radius: 50%; /* Make the background rounded */
+    line-height: 1; /* Adjust line-height to ensure proper vertical alignment */
+}
+
+.card p {
+    color: rgb(144, 139, 139);
+    margin: 5px 0;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 15px;
+}
+
+.star-rating {
+    display: inline-block; /* Ensure the span behaves like a block element */
+    padding: 5px; /* Add some padding for spacing */
+    background-color: green; /* Set background color */
+    border-radius: 50%; /* Make the background rounded */
+    line-height: 1; /* Adjust line-height to ensure proper vertical alignment */
+    color: white; /* Change star color to white */
+    font-size: 18px; /* Adjust font size as needed */
+}
+
+
+.star-rating > .material-icons {
+    font-size: 13px;
+}
+
+.less-rating {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 3px;
+    padding: 3px;
+}
+
+.less-rating > .material-icons {
+    font-size: 13px;
+}
+
+.bullet {
+    width: 4px;
+    height: 4px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.offers {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    color: rgb(201, 121, 121);
+    font-size: 15px;
+}
+
+.view {
+    visibility: hidden;
+    margin: 15px 0 0 80px;
+    padding-bottom: 5px;
+    color: dodgerblue;
+    text-decoration: none;
+}
+
+.card:hover .view {
+    visibility: visible;
+}
+
+.card:hover {
+    transform: scale(0.9); 
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+/* Footer Contents */
+.company-details {
+    color: white;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 100px;
+}
+
+.company-details > div {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+}
+
+.company-details > div > h3 {
+    color: grey;
+}
+
+.company-details > div > a {
+    color: white;
+    text-decoration: none;
+}
+
+.applinks > a > img {
+    width: 200px;
+    margin-top: 30px;
+    transition-duration: 0.5s;
+    border-radius: 5px;    
+}
+
+.company-details img:hover {
+    width: 210px;
+}
+
+.company-details a:hover {
+    font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 950px) {
+    .left > .option {
+        font-size: 15px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .menu:hover + .right {
+        display: flex;
+        background-color: white;
+        flex-flow: column wrap;
+        position: absolute;
+        justify-content: space-evenly;
+        outline: 1px solid grey;
+        top: 80px;
+        right: 0;
+        width: 200px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+    }
+
+    .company-details {
+        padding: 80px;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .left > .option {
+        font-size: 15px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .menu:hover + .right {
+        display: flex;
+        background-color: white;
+        flex-flow: column wrap;
+        position: absolute;
+        outline: 1px solid grey;
+        box-shadow: 3px 3px;    
+        top: 80px;
+        right: 0;
+        width: 200px;
+    }
+
+    .cards-container {
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+
+    .company-details {
+        padding: 80px;
+        grid-template-columns: auto;
+        justify-content: center;
+        gap: 10px;
+    }
+}

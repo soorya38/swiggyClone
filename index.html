@@ -1,28 +1,457 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
-        <title>Swiggy Clone</title>
-        <link rel="stylesheet" href="pages/index.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+
+        <style>
+            .img1 {
+                overflow-clip-margin: content-box;
+                overflow: clip;
+                clip-path: inset(60px 0 round 15px);
+                border-radius: 15px; 
+            }
+
+            .others {
+                text-decoration: underline; 
+            }
+            h2 strong {
+                font-weight: 900;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                /* background-color: #f4f4f4; */
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .carousel-container {
+                position: relative;
+                width: 100%;
+                max-width: 1000px; 
+                margin: 0 auto; 
+                overflow: hidden;
+            }
+
+            .carousel {
+                display: flex;
+            }
+
+            .carousel-inner {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                width: 100%;
+            }
+
+            .carousel-item {
+                flex: 1 0 14%; 
+                box-sizing: border-box;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .carousel-item img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+            .carousel-control {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 24px;
+                border-radius: 50%;
+                z-index: 10;
+            }
+
+            .carousel-control.prev {
+                left: 10px;
+            }
+
+            .carousel-control.next {
+                right: 10px;
+            }
+
+            .button-container {
+                display: flex;
+                justify-content: flex-end; /* Aligns buttons to the right */
+                gap: 10px; /* Space between buttons */
+                padding: 10px; /* Optional padding around the container */
+            }
+
+            .prev, .next {
+                background-color: lightgrey;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+                cursor: pointer;
+                text-align: center;
+                line-height: 35px; /* Aligns text vertically */
+            }
+
+            .prev:hover, .next:hover {
+                background-color: #d3d3d3; /* Slightly darker on hover */
+            }
+        </style>
     </head>
-    <body class="body">
-        <!-- navigation bar -->
-        <div class="navBar">
-            <ul class="navElements">
-                <span class="navLeft">
-                    <li>
-                        <img src="assets/swiggyLogo.jpg" height="20px" width="20px" />
-                        Other
-                    </li>
+
+    <body>
+        <!-- nav bar  -->
+        <nav class="nav-container">
+            <div class="left">
+                <div class="logo">
+                    <img src="logo.jpg" class="logo-img">
+                </div>
+                <div class="option">
+                    <a href="#" class="others" id="other"><h4><strong>Other</strong></h4></a>
+                    <span class="material-icons">expand_more</span>
+                </div>
+            </div>
+        
+            <span class="material-icons menu">menu</span>
+        
+            <div class="right">
+                <span class="searchicon">
+                    <span class="material-icons">search</span>
+                    <a href="#"><input type="search" placeholder="Search" class="search"></a>
                 </span>
-                <span class="navRight">
-                    <li>Swiggy Corporate</li>
-                    <li>Search</li>
-                    <li>Offers</li>
-                    <li>Help</li>
-                    <li>Sign In</li>
-                    <li>Cart</li>
+                <span class="newoffer icon">
+                    <img src="./discount.png" class="icon icon1">
+                    <a href="#">Offers</a>
                 </span>
-            </ul>
+                <span class="help icon">
+                    <span class="material-icons">help</span>
+                    <a href="#">Help</a>
+                </span>
+                <span class="signin icon">
+                    <span class="material-icons">person</span>
+                    <a href="#">Sign In</a>
+                </span>
+                <span class="cart icon">
+                    <span class="material-icons">archive</span>
+                    <a href="#">Cart</a>
+                </span>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h2><strong>What's on your mind?</strong></h2>
+
+            <!-- carousel -->
+            <button class=" prev" onclick="showPrevItem()">&#10094;</button>
+            <button class=" next" onclick="showNextItem()">&#10095;</button>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="dosa.jpg" alt="Image 1">
+                            <p>Dosa</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/cake.png" alt="Image 2">
+                            <p>Cake</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/chinese.png" alt="Image 3">
+                            <p>Chinese</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/icecream.png" alt="Image 1">
+                            <p>Icecream</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/idli.png" alt="Image 2">
+                            <p>Idli</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/noodles.png" alt="Image 3">
+                            <p>Noodles</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/northindian.png" alt="Image 3">
+                            <p>North Indian</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/paratha.png" alt="Image 3">
+                            <p>Paratha</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/rolls.png" alt="Image 3">
+                            <p>Rolls</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/pasta.png" alt="Image 3">
+                            <p>Pasta</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/salad.png" alt="Image 3">
+                            <p>Salad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <nav class="nav-container1">
+            </nav>
+
+            <h2><strong>Top restaurant chains in Coimbatore</strong></h2>
+            <button class=" prev" >&#10094;</button>
+            <button class=" next" >&#10095;</button>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                                        <div class="card">
+                                            <img src="assets/restaurents/burger.avif" class="img1">
+                                            <h3>Indiana Burgers</h3>
+                                            <div class="rating">
+                                                <div class="less-rating">
+                                                    <span class="material-icons lessrate">star</span>
+                                                    <span>3.8</span>
+                                                </div>
+                                                <div class="bullet"></div>
+                                                <span class="time">44 MINS</span>
+                                                <div class="bullet"></div>
+                                                <span class="price">₹200 FOR TWO</span>
+                                            </div>
+                                            <p>Burgers, American, Fast Food, ...</p>
+                                            <div class="offers">
+                                                <span class="material-icons">discount</span>
+                                                <span>50% off | Use WELCOME50</span>
+                                            </div>
+                                            <a href="#" class="view">QUICK VIEW</a>
+                                        </div>
+                        </div>
+                        <div class="carousel-item">
+                                        <div class="card">
+                                            <img src="assets/restaurents/Dessert.avif" class="img1">
+                                            <h3>The Desser Haven</h3>
+                                            <div class="rating">
+                                                <div class="less-rating">
+                                                    <span class="material-icons star-rating">star</span>
+                                                    <span>3.8</span>
+                                                </div>
+                                                <div class="bullet"></div>
+                                                <span class="time">44 MINS</span>
+                                                <div class="bullet"></div>
+                                                <span class="price">₹100 FOR TWO</span>
+                                            </div>
+                                            <p>Bakery, Desserts, Ice cream...</p>
+                                            <a href="#" class="view">QUICK VIEW</a>
+                                        </div>
+                        </div>
+                        <div class="carousel-item">
+                                        <div class="card">
+                                            <img src="assets/restaurents/conedosa.avif" class="img1">
+                                            <h3>Shree Akshayam</h3>
+                                            <div class="rating">
+                                                <div class="star-rating">
+                                                    <span class="material-icons star-rating">star</span>
+                                                    <!-- <span>4.5</span> -->
+                                                </div>
+                                                <div class="bullet"></div>
+                                                <span class="time">44 MINS</span>
+                                                <div class="bullet"></div>
+                                                <span class="price">₹200 FOR TWO</span>
+                                            </div>
+                                            <p>South Indian, Chinese</p>
+                                            <div class="offers">
+                                                <span class="material-icons">discount</span>
+                                                <span>50% off | Use WELCOME50</span>
+                                            </div>
+                                            <a href="#" class="view">QUICK VIEW</a>
+                                        </div>
+                        </div>
+                        <div class="carousel-item">
+                                        <div class="card">
+                                            <img src="assets/restaurents/gheerice.avif" class="img1">
+                                            <h3>RHR specials</h3>
+                                            <div class="rating">
+                                                <div class="less-rating">
+                                                    <span class="material-icons star-rating">star</span>
+                                                    <span>3.9</span>
+                                                </div>
+                                                <div class="bullet"></div>
+                                                <span class="time">44 MINS</span>
+                                                <div class="bullet"></div>
+                                                <span class="price">₹200 FOR TWO</span>
+                                            </div>
+                                            <p>Biriyani, South Indian, Desserts...</p>
+                                            <div class="offers">
+                                                <span class="material-icons">discount</span>
+                                                <span>50% off | Use WELCOME50</span>
+                                            </div>
+                                            <a href="#" class="view">QUICK VIEW</a>
+                                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="nav-container1">
+            </nav>
+
+            <h2><strong>Restaurants with online food delivery in Coimbatore</strong></h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/kmr3ahctsqxcycctl80d"
+                        class="img1">
+                    <h3>Naattarrasan</h3>
+                    <p>Chettinad, North Indian, Chinse, South Indian,
+                        Chicken Thanduri,Biryani
+                    </p>
+                    <div class="rating">
+                        <div class="less-rating">
+                            <span class="material-icons">star</span>
+                            <span>3.6</span>
+                        </div>
+                        <div class="bullet"></div>
+                        <span class="time">44 MINS</span>
+                        <div class="bullet"></div>
+                        <span class="price">₹200 FOR TWO</span>
+                    </div>
+                    <div class="offers">
+                        <span class="material-icons">discount</span>
+                        <span>50% off | Use WELCOME50</span>
+                    </div>
+                    <a href="#" class="view">QUICK VIEW</a>
+                </div>
+                <div class="card">
+                    <div class="promoted">PROMOTED</div>
+                    <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/kmr3ahctsqxcycctl80d"
+                        class="img1">
+                    <h3>Naattarrasan</h3>
+                    <p>Chettinad, North Indian, Chinse, South Indian,
+                        Chicken Thanduri,Biryani
+                    </p>
+                    <div class="rating">
+                        <div class="less-rating">
+                            <span class="material-icons">star</span>
+                            <span>3.7</span>
+                        </div>
+                        <div class="bullet"></div>
+                        <span class="time">44 MINS</span>
+                        <div class="bullet"></div>
+                        <span class="price">₹200 FOR TWO</span>
+                    </div>
+                    <div class="offers">
+                        <span class="material-icons">discount</span>
+                        <span>50% off | Use WELCOME50</span>
+                    </div>
+                    <a href="#" class="view">QUICK VIEW</a>
+                </div>
+                <div class="card">
+                    <div class="promoted">PROMOTED</div>
+                    <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/kmr3ahctsqxcycctl80d"
+                        class="img1">
+                    <h3>Naattarrasan</h3>
+                    <p>Chettinad, North Indian, Chinse, South Indian,
+                        Chicken Thanduri,Biryani
+                    </p>
+                    <div class="rating">
+                        <div class="star-rating">
+                            <span class="material-icons">star</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="bullet"></div>
+                        <span class="time">44 MINS</span>
+                        <div class="bullet"></div>
+                        <span class="price">₹200 FOR TWO</span>
+                    </div>
+                    <div class="offers">
+                        <span class="material-icons">discount</span>
+                        <span>50% off | Use WELCOME50</span>
+                    </div>
+                    <a href="#" class="view">QUICK VIEW</a>
+                </div>
+            </div>
         </div>
+
+        <footer class="company-details">
+        <div class="company">
+            <h3>COMPANY</h3>
+            <a href="#">About us</a>
+            <a href="#">Team</a>
+            <a href="#">Careers</a>
+            <a href="#">Swiggy Blog</a>
+            <a href="#">Bug Bounty</a>
+            <a href="#">Swiggy Super</a>
+            <a href="#">Swiggy Corporate</a>
+            <a href="#">Swiggy Instamart</a>
+        </div>
+        <div class="contact smallwidth">
+            <h3>CONTACT</h3>
+            <a href="#">Help & Support</a>
+            <a href="#">Partner with us</a>
+            <a href="#">Ride with us</a>
+        </div>
+        <div class="legal smallwidth">
+            <h3>LEGAL</h3>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Refund & Cancellations</a>
+            <a href="#">Private Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Offer Terms</a>
+            <a href="#">Phishing & Fraud</a>
+        </div>
+        <div class="applinks">
+            <a href="#"><img src="https://zeevector.com/wp-content/uploads/2021/01/Get-It-On-Google-Play-Logo-PNG.png" alt="play" class="play"></a>
+            <a href="#" ><img src="https://pluspng.com/img-png/download-on-app-store-png-open-2000.png" alt="apple" class="apple"></a>
+        </div>
+        </footer>
+
+        <script>
+            let currentIndex = 0;
+            const itemsToShow = 8; 
+
+            function updateCarousel() {
+                const carouselInner = document.querySelector('.carousel-inner');
+                const items = document.querySelectorAll('.carousel-item');
+                const totalItems = items.length;
+
+                const offset = -currentIndex * (100 / itemsToShow);
+                carouselInner.style.transform = `translateX(${offset}%)`;
+            }
+
+            function showNextItem() {
+                const items = document.querySelectorAll('.carousel-item');
+                const totalItems = items.length;
+
+                currentIndex = (currentIndex + itemsToShow) % totalItems;
+                updateCarousel();
+            }
+
+            function showPrevItem() {
+                const items = document.querySelectorAll('.carousel-item');
+                const totalItems = items.length;
+
+                currentIndex = (currentIndex - itemsToShow + totalItems) % totalItems;
+                updateCarousel();
+            }
+
+            setInterval(showNextItem, 5000); 
+            updateCarousel();
+
+        </script>
     </body>
+
 </html>
